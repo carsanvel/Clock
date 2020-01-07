@@ -10,14 +10,15 @@ import java.util.TimerTask;
 public class TimePointer {
 
     private final List<Observer> observers = new ArrayList<>();
-    private final static double dt = 0.1;
+    private final int interval;
     private final static double dAngle = (Math.PI*2) / 60;
     private double angle;
 
-    public TimePointer() {
+    public TimePointer(int interval) {
+        this.interval = interval;
         angle = 3*Math.PI/2;
         Timer timer  = new Timer();
-        timer.schedule(task(), 0, 1000);
+        timer.schedule(task(), 0, interval);
     }
     
     public double getAngle() {
