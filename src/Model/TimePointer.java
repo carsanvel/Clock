@@ -15,7 +15,7 @@ public class TimePointer {
     private double angle;
 
     public TimePointer() {
-        angle = 0.0;
+        angle = 3*Math.PI/2;
         Timer timer  = new Timer();
         timer.schedule(task(), 0, 1000);
     }
@@ -43,7 +43,6 @@ public class TimePointer {
     
     private void increaseAngle() {
         angle = (angle + dAngle) % (Math.PI*2);
-        System.out.println(angle);
     }
     
     private void notifyObservers() {
