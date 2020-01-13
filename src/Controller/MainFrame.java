@@ -13,9 +13,9 @@ public class MainFrame extends JFrame{
         setSize(700, 700);
         setTitle("Clock");
         setLocationRelativeTo(null);
-        TimePointer seconds = new TimePointer(1000);
-        TimePointer minutes = new TimePointer(60000);
-        TimePointer hours = new TimePointer(720000);
+        TimePointer seconds = new TimePointer(1000, 1, 150);
+        TimePointer minutes = new TimePointer(60000, 3, 100);
+        TimePointer hours = new TimePointer(720000, 5, 50);
         display = new SwingClockDisplay(seconds, minutes, hours);
         seconds.add(display);
         
