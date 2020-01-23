@@ -7,9 +7,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import static javax.imageio.ImageIO.read;
 
-public class FileImageLoader {
+public class FileImageLoader implements ImageLoader{
 
-    public static BufferedImage load(String path) {
+    @Override
+    public BufferedImage load(String path) {
         try {
             return read(new BufferedInputStream(new FileInputStream(new File(path))));
         }

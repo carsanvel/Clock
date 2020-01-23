@@ -11,15 +11,11 @@ public class TimePointer {
 
     private final List<Observer> observers = new ArrayList<>();
     private final static double dAngle = (Math.PI*2) / 60;
-    private final int widht;
-    private final int length;
     private final int interval;
     private double angle;
 
-    public TimePointer(int interval, int width, int length) {
+    public TimePointer(int interval) {
         this.interval = interval;
-        this.widht = width;
-        this.length = length;
         angle = 3*Math.PI/2 - dAngle;
         Timer timer  = new Timer();
         timer.schedule(task(), 0, interval);
@@ -29,12 +25,8 @@ public class TimePointer {
         return angle;
     }
     
-    public int getWidth() {
-        return widht;
-    }
-    
-    public int getLength() {
-        return length;
+    public void setAngle(double angle) {
+        this.angle = angle % (2*Math.PI);
     }
     
     public void add(Observer observer) {
